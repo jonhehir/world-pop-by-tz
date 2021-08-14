@@ -1,6 +1,5 @@
+from argparse import ArgumentParser
 from collections import Counter
-import os
-from pathlib import Path
 
 import numpy as np
 from timezonefinder import TimezoneFinder
@@ -8,12 +7,17 @@ from timezonefinder import TimezoneFinder
 from tzpop.ascii import ASCIIGrid, ASCIIGridJoin
 
 
-os.chdir(Path(__file__).parent)
+# Get file paths from commmand line args
+parser = ArgumentParser()
+parser.add_argument("nat", type=str, help="Path to national identifier grid (ASCII)")
+parser.add_argument("pop", type=str, help="Path to population grid (ASCII)")
+args = parser.parse_args()
 
 # Load ASCII data
-grid_nat = ASCIIGrid("data/gpw-v4-national-identifier-grid-rev11_1_deg_asc/gpw_v4_national_identifier_grid_rev11_1_deg.asc")
-grid_pop = ASCIIGrid("data/gpw-v4-population-count-adjusted-to-2015-unwpp-country-totals-rev11_2020_1_deg_asc/gpw_v4_population_count_adjusted_to_2015_unwpp_country_totals_rev11_2020_1_deg.asc")
-join = ASCIIGridJoin(country=grid_nat, population=grid_pop)
+join = ASCIIGridJoin(
+    country=ASCIIGrid(args.nat),
+    population=ASCIIGrid(args.pop)
+)
 
 
 # Iterate over grids to tally population, grouped by country and timezone (e.g., America/New_York)
