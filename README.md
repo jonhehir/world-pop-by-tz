@@ -13,9 +13,10 @@ So have I! Good data on this is hard to find.
 
 ## The Database
 
-This produces a table of world population grouped by IANA timezone code (e.g., `America/New_York`) and country code.
-
-*Auxilliary tables for UTC offsets, DST information, country names, etc. are forthcoming...*
+- `tally.py` produces a table of world population grouped by IANA timezone code (e.g., `America/New_York`) and country code.
+- `timezones.py` produces a table of timezone data by IANA code.
+- The GPWv4 National Identifier dataset (see "Data Sources" below) includes a table of country data.
+- These can be compiled into one nice SQLite DB via `sql/import.sql`.
 
 ## Data Sources
 
@@ -29,3 +30,7 @@ This is not the first time someone has tried to get to address the question of w
 
 - Manual data aggregation [(example)](https://www.reddit.com/r/dataisbeautiful/comments/7v743h/population_of_the_world_by_time_zone_oc/): This is painstaking work.
 - Heuristics based on country-level data [(example)](https://blog.cyberclip.com/world-population-by-time-zone): The linked example takes a list of country populations and divides it evenly across timezones that intersect that country. Thus, for example, Canada is assumed to be evenly divided across six timezones, when in reality, the majority of the population resides in one timezone.
+
+# Limitations
+
+Since we're working with rasterized data here, it will be the case that some small portion of the population is misattributed to the wrong country and/or timezone. This would be mitigated by using a higher resolution dataset. Currently, I've only run this on the lowest resolution data for testing. At some point, I will get around to running this on higher resolution data.

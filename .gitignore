@@ -1,6 +1,13 @@
 # Data directory (large files)
 data/
 
+# Compiled data
+*.tsv
+*.sqlite
+
+# R files ( :eyeballs: )
+*.R
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

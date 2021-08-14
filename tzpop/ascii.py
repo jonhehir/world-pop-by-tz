@@ -1,4 +1,4 @@
-from typing import Any, Dict, Iterable
+from typing import Any, Dict, Iterable, Tuple
 import numpy as np
 
 
@@ -11,23 +11,23 @@ class ASCIIGrid:
         self.grid = self._read_grid(filename)
 
     @property
-    def rows(self):
+    def rows(self) -> int:
         return self.grid.shape[0]
 
     @property
-    def cols(self):
+    def cols(self) -> int:
         return self.grid.shape[1]
 
     @property
-    def cell_size(self):
+    def cell_size(self) -> float:
         return self.meta["cellsize"]
 
     @property
-    def _nodata_value(self):
-        return self.meta["NODATA_value"]
+    def _nodata_value(self) -> int:
+        return int(self.meta["NODATA_value"])
 
     @property
-    def origin(self):
+    def origin(self) -> Tuple[float, float]:
         return (self.meta["yllcorner"] + self.cell_size * (self.rows - 0.5),
                 self.meta["xllcorner"] + self.cell_size * 0.5)
 
@@ -61,7 +61,7 @@ class ASCIIGridJoin:
         self._validate_compatibility()
     
     @property
-    def _first(self):
+    def _first(self) -> ASCIIGrid:
         return self.grids[list(self.grids.keys())[0]]
     
     def _validate_compatibility(self) -> bool:
