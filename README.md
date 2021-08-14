@@ -33,6 +33,6 @@ This is not the first time someone has tried to get to address the question of w
 
 ## Limitations
 
-Since we're working with rasterized data here, it will be the case that some small portion of the population is misattributed to the wrong country and/or timezone. This would be mitigated by using a higher resolution dataset. Currently, I've only run this on the lowest resolution data for testing. At some point, I will get around to running this on higher resolution data.
+Since we're working with rasterized data here, it will be the case that some small portion of the population is misattributed to the wrong country and/or timezone. This would be mitigated by using a higher resolution dataset. Currently, I've only run this on the lowest resolution data for testing/exploration. At some point, I will get around to running this on higher resolution data.
 
 If very high resolution data is desired, it would probably be wise to rewrite the tally to rasterize the GeoJSON from [`timezone-boundary-builder`](https://github.com/evansiroky/timezone-boundary-builder) and do a fully GeoTIFF/numpy approach to reading and aggregating.
