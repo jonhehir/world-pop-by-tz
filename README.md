@@ -13,6 +13,10 @@ So have I! Good data on this is hard to find.
 
 ## The Database
 
+⭐ A downloadable SQLite DB can be found on the [Releases](https://github.com/jonhehir/world-pop-by-tz/releases) page.
+
+Here's how that was made:
+
 - `tally.py` produces a table of world population grouped by IANA timezone code (e.g., `America/New_York`) and country code.
 - `timezones.py` produces a table of timezone data by IANA code.
 - The GPWv4 National Identifier dataset (see "Data Sources" below) includes a table of country data.
