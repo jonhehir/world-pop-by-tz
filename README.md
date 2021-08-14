@@ -26,7 +26,7 @@ Here's how that was made:
 
 Population data comes from [Gridded Population of the World (GPW) v4](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) from [Socioeconomic Data and Applications Center (SEDAC)](https://sedac.ciesin.columbia.edu/). This is a raster dataset of world population available at various resolutions. Each country's population data is sourced differently, so the effective resolution of the data varies from one nation to another. For the United States, for example, the raster data is produced by rasterization of small areal units from the U.S. Census. Each country's data in GPWv4 is adjusted to match the 2015 Revision of the United Nation's World Population Prospects country totals.
 
-Geographic timezone lookup is powered by [`timezonefinder`](https://github.com/jannikmi/timezonefinder). Additional timezone information is pulled from the IANA `tz` database via [`pytz`](https://github.com/stub42/pytzata/).
+Geographic timezone lookup is powered by [`timezonefinder`](https://github.com/jannikmi/timezonefinder). Additional timezone information is pulled from the IANA `tz` database via [`pytz`](https://github.com/stub42/pytz/).
 
 ## Similar Work
 
